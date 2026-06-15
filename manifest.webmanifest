@@ -1,0 +1,20 @@
+{
+  "name": "Shadow Quest",
+  "short_name": "Shadow Quest",
+  "description": "سیستم ماموریت، سطح و رتبه برای برنامه روزانه",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070914",
+  "theme_color": "#070914",
+  "dir": "rtl",
+  "lang": "fa",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

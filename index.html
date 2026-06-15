@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#070914" />
+    <title>Shadow Quest</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="splash" id="splashScreen" aria-hidden="true">
+      <div class="gate">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="splash-title">
+        <p>System Online</p>
+        <h1>Shadow Quest</h1>
+        <small>پنل ارتقای روزانه فعال شد</small>
+      </div>
+    </div>
+
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Quest System</p>
+          <h1>Shadow Quest</h1>
+        </div>
+        <button class="icon-button" id="installBtn" type="button" title="نصب روی گوشی" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2" />
+          </svg>
+        </button>
+      </header>
+
+      <main>
+        <section class="screen active" id="onboardingScreen">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <span class="badge">Welcome Hunter</span>
+              <h2>The System Has Selected You</h2>
+              <p>Shadow Quest زندگی واقعی تو را به RPG تبدیل می‌کند: بیزینس، فیتنس، مهارت، پول و عادت‌ها تبدیل به Quest می‌شوند.</p>
+            </div>
+            <div class="portal-art" aria-hidden="true">
+              <div class="portal-ring"></div>
+              <div class="portal-core"></div>
+              <div class="slash one"></div>
+              <div class="slash two"></div>
+            </div>
+          </div>
+
+          <form class="setup-form" id="profileForm">
+            <label>
+              نام یا لقب
+              <input name="hunterName" required placeholder="مثلا امیر، Shadow Hunter" />
+            </label>
+            <label>
+              جنسیت
+              <select name="gender">
+                <option value="ذکر">ذکر</option>
+                <option value="مونث">مونث</option>
+                <option value="ترجیح می‌دهم نگویم">ترجیح می‌دهم نگویم</option>
+              </select>
+            </label>
+            <label>
+              نوع کار یا بیزینس
+              <input name="business" required placeholder="مثلا فروشگاه آنلاین، برنامه‌نویسی، رستوران" />
+            </label>
+            <label>
+              هدف اصلی کاری
+              <input name="workGoal" required placeholder="مثلا افزایش فروش، تولید محتوا، یادگیری" />
+            </label>
+            <div class="field-grid two">
+              <label>
+                درآمد فعلی
+                <input name="currentIncome" type="number" min="0" step="100000" placeholder="0" />
+              </label>
+              <label>
+                هدف درآمد
+                <input name="goalIncome" type="number" min="0" step="100000" placeholder="10000000" />
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                سن
+                <input name="age" type="number" min="12" max="90" required placeholder="28" />
+              </label>
+              <label>
+                قد
+                <input name="height" type="number" min="90" max="230" required placeholder="175" />
+              </label>
+              <label>
+                وزن
+                <input name="weight" type="number" min="30" max="250" required placeholder="80" />
+              </label>
+            </div>
+            <label>
+              سبک تمرین
+              <select name="sport">
+                <option value="پیاده‌روی">پیاده‌روی</option>
+                <option value="بدنسازی">بدنسازی</option>
+                <option value="دویدن">دویدن</option>
+                <option value="شنا">شنا</option>
+                <option value="یوگا">یوگا</option>
+                <option value="تمرین خانگی">تمرین خانگی</option>
+              </select>
+            </label>
+            <label>
+              هدف بدنی
+              <select name="healthGoal">
+                <option value="کاهش وزن">کاهش وزن</option>
+                <option value="افزایش انرژی">افزایش انرژی</option>
+                <option value="عضله‌سازی">عضله‌سازی</option>
+                <option value="ثبات و نظم">ثبات و نظم</option>
+              </select>
+            </label>
+            <div class="field-grid">
+              <label>
+                ساعت بیداری
+                <input name="wakeTime" type="time" value="07:00" />
+              </label>
+              <label>
+                ساعت خواب
+                <input name="sleepTime" type="time" value="23:30" />
+              </label>
+              <label>
+                ساعات آزاد روزانه
+                <input name="dailyHours" type="number" min="1" max="16" step="0.5" value="3" />
+              </label>
+            </div>
+            <label>
+              تعهد جریمه اگر ماموریت شکست خورد
+              <input name="penalty" type="number" min="1000" step="1000" value="50000" />
+            </label>
+            <button class="primary-action" type="submit">فعال‌سازی سیستم</button>
+          </form>
+        </section>
+
+        <section class="screen" id="dashboardScreen">
+          <section class="status-panel">
+            <div>
+              <p class="eyebrow" id="todayLabel">امروز</p>
+              <h2 id="hunterTitle">Hunter</h2>
+              <p class="rank-line"><span id="rankValue">E-Rank</span> / Level <span id="levelValue">1</span></p>
+            </div>
+            <div class="xp-block">
+              <span id="xpText">0 / 100 XP</span>
+              <div class="xp-bar"><i id="xpFill"></i></div>
+            </div>
+          </section>
+
+          <section class="attribute-grid" id="attributeGrid" aria-label="Hunter attributes"></section>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span>قدرت</span>
+              <strong id="powerValue">0</strong>
+            </article>
+            <article class="stat-card violet">
+              <span>سکه سایه</span>
+              <strong id="coinValue">0</strong>
+            </article>
+            <article class="stat-card amber">
+              <span>زنجیره</span>
+              <strong id="streakValue">0</strong>
+            </article>
+          </div>
+
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Daily Dungeon</p>
+              <h2>ماموریت‌های ۲۴ ساعته</h2>
+            </div>
+            <div class="head-actions">
+              <button class="ghost-button" id="resetTodayBtn" type="button">روز جدید</button>
+              <button class="icon-button" id="editProfileBtn" type="button" title="ویرایش پروفایل">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <section class="timeline" id="taskList" aria-live="polite"></section>
+
+          <form class="task-editor" id="taskForm">
+            <input type="hidden" name="id" />
+            <label>
+              عنوان ماموریت
+              <input name="title" required placeholder="مثلا تماس با ۵ مشتری" />
+            </label>
+            <div class="field-grid two">
+              <label>
+                زمان پایان
+                <input name="time" type="time" required />
+              </label>
+              <label>
+                نوع
+                <select name="category">
+                  <option value="work">بیزینس</option>
+                  <option value="sport">قدرت بدنی</option>
+                  <option value="health">ریکاوری</option>
+                  <option value="learn">ذهن</option>
+                  <option value="life">نظم</option>
+                  <option value="money">مالی</option>
+                  <option value="social">کاریزما</option>
+                </select>
+              </label>
+            </div>
+            <div class="field-grid two">
+              <label>
+                XP
+                <input name="xp" type="number" min="1" step="5" value="25" />
+              </label>
+              <label>
+                سکه
+                <input name="coins" type="number" min="0" step="1" value="4" />
+              </label>
+            </div>
+            <label>
+              جریمه شکست
+              <input name="penalty" type="number" min="0" step="1000" />
+            </label>
+            <div class="form-actions">
+              <button class="primary-action" type="submit">ثبت ماموریت</button>
+              <button class="ghost-button" id="cancelEditBtn" type="button">لغو</button>
+            </div>
+          </form>
+
+          <section class="ledger">
+            <div class="panel-head compact">
+              <h2>گزارش سیستم</h2>
+              <button class="ghost-button" id="clearLogBtn" type="button">پاک کردن</button>
+            </div>
+            <div id="logList" class="log-list"></div>
+          </section>
+        </section>
+      </main>
+
+      <footer class="creator-credit">
+        ساخته شده توسط امیرحسین موسی پور، صاحب شرکت shotphoo
+      </footer>
+    </div>
+
+    <template id="taskTemplate">
+      <article class="task-row">
+        <div class="time-chip"></div>
+        <div class="task-main">
+          <div class="task-title-row">
+            <h3></h3>
+            <span class="category-pill"></span>
+          </div>
+          <p class="task-meta"></p>
+        </div>
+        <div class="task-actions">
+          <button class="done-btn" type="button">Clear</button>
+          <button class="mini-icon edit-btn" type="button" title="ویرایش">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+            </svg>
+          </button>
+          <button class="mini-icon delete-btn" type="button" title="حذف">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 6h18M8 6V4h8v2m-1 5v6M9 11v6M5 6l1 15h12l1-15" />
+            </svg>
+          </button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
