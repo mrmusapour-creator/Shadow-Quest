@@ -6,7 +6,7 @@ const categoryLabels = {
   learn: "ذهن",
   life: "نظم",
   money: "مالی",
-  social: "کاریزما"
+  social: "کاریزماتیک"
 };
 const ranks = [
   { name: "E Rank", xp: 0 },
